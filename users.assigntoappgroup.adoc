@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: users.assigntoappgroup.html 
+summary: Asignación de usuarios a grupos de aplicaciones en VDMS 
+keywords:  
+---
+= Asignación de usuarios a grupos de aplicaciones
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:allow-uri-read: 
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== Metodología de asignación de usuarios
+
+Los usuarios se asignan a una máquina virtual de host de sesión (SHVM) a través de grupos de seguridad de AD.
+
+Para cada grupo de hosts, hay un grupo de usuarios vinculados en la ficha "usuarios y grupos" del área de trabajo.
+
+Los grupos de usuarios reciben el nombre del identificador del área de trabajo (un código único de 3-4 dígitos para cada área de trabajo), seguido del nombre del grupo de hosts.
+
+Por ejemplo, el grupo "jzsx Shared Users" está vinculado al grupo de hosts Shared Users de VDMS. Todos los usuarios agregados a "jzsx Shared Users" tendrán acceso a los hosts de sesión del grupo de hosts "Shared Users".
+
+.Para asignar un usuario a su pool de hosts
+. Navegue hasta "usuarios y grupos" dentro del área de trabajo
+. Los usuarios se pueden agregar al grupo editando la lista de usuarios dentro del grupo.
+. La automatización sincronizará automáticamente los miembros del grupo de usuarios para que el usuario tenga acceso al grupo de hosts, grupo de aplicaciones y aplicaciones adecuados.
+
+
+
+NOTE: Los usuarios solo deben asignarse a un grupo de aplicaciones (y sólo a uno). El tipo de pool de host (compartido, VDI o GPU) debe coincidir con las SKU con licencia adquiridas para LOS VDM. Una mala alineación de los usuarios o la asignación a varios grupos de aplicaciones provocará problemas de contención de recursos y, además, podría afectar a sus colegas que trabajan en el entorno.

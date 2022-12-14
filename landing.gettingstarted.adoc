@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: landing.gettingstarted.html 
+summary: Página de inicio para VDMS 
+keywords:  
+---
+= Pasos para el éxito DE VDMS
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:allow-uri-read: 
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== ¿Qué es VDMM?
+
+El servicio gestionado de escritorios virtuales (VDMS) es la solución de ECS gestionados de NetApp que permite externalizar la infraestructura, la puesta en marcha y el aprovisionamiento de escritorios virtuales, permitiéndole centrarse en sus usuarios y aplicaciones por una cuota mensual única por usuario.
+
+image::landing.gettingstarted-3b8c5.png[landing.gettingstarted 3b8c5]
+
+
+
+== Configuración DE VDMS
+
+El proyecto de implantación DE VDMM consistirá en lo siguiente:
+
+. link:serviceoffering.prerequisites.html["Requisitos previos"]
+. Llamada inicial de revisión del entorno del cliente
+. NetApp proporciona su infraestructura WVD y su espacio de trabajo
+. Sesiones de formación interactiva en directo
+. Agregue sus datos, aplicaciones y usuarios a su WVD personalizado
+. Probar el entorno, los puestos de trabajo del usuario y la conectividad
+. ¡Viva!
+
+
+
+
+== ¿Cuál es el futuro?
+
+Para garantizar una puesta en marcha correcta y oportuna, comience con los siguientes pasos:
+
+. Obtener link:serviceoffering.prerequisites.html#m365-licensing["Licencias de Microsoft 365 adecuadas"] para los usuarios
+. Crear una lista de usuarios DE VDMS
+. Crear una lista de aplicaciones, medios, licencias e información del proveedor: Tenga en cuenta cualquier base de datos o aplicaciones heredadas que puedan requerir consideraciones especiales o asistencia del proveedor
+. Identifique los datos que se deberán transferir
+. Si está implementando con una instancia de Active Directory existente, revise estas opciones link:serviceoffering.prerequisites.html#existing-ad-integration["requisitos previos adicionales"]
+

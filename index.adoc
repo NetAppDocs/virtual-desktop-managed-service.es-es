@@ -1,0 +1,137 @@
+---
+sidebar: sidebar 
+permalink: index.html 
+summary: Bienvenido al portal de documentación de Virtual Desktop Managed Service. 
+keywords:  
+---
+= Documentación de Virtual Desktop Managed Service
+:allow-uri-read: 
+
+
+
+
+== Descripción general
+
+El servicio gestionado de escritorios virtuales (VDM) de NetApp soluciona la complejidad de poner en marcha y gestionar escritorios virtuales en el cloud público, que se ofrecen como una plataforma gestionada de VDI como servicio.
+
+
+
+== Obtener soporte
+
+Asistencia por correo electrónico: support@spotpc.netapp.com
+
+Asistencia telefónica: 844.645.6789
+
+link:https://cloudjumper.zendesk.com["Portal DE asistencia VDMM"]
+
+Horario normal de asistencia: De lunes a viernes, de 7:00 a 7:00 horas Hora central.
+
+* Servicio de soporte (durante la llamada) fuera del horario de oficina disponible solo por teléfono.
+
+
+
+
+== Clientes de escritorio virtual de Windows (WVD)
+
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-windows-7-10["Cliente WVD de Microsoft para Windows"]
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-web["Cliente Web de Microsoft WVD"]
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-android["Cliente Microsoft WVD para Android"]
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-macos["Cliente Microsoft WVD para MacOS"]
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-ios["Cliente WVD de Microsoft para iOS"]
+
+
+
+
+== Componentes de servicio
+
+VDMS es una oferta de servicios gestionados que reúne varias tecnologías de NetApp y Microsoft y aplica las mejores prácticas aprendidas en más de 20 años en el mercado de la EUC. Debajo de una lista de componentes seleccionados se muestran. No todos los componentes se utilizan en todas las puestas en marcha debido a los distintos requisitos del cliente.
+
+
+
+=== NetApp
+
+* link:https://azure.microsoft.com/en-us/services/netapp/["Azure NetApp Files (ANF)"]
++
+** La capa de almacenamiento de datos para puestas en marcha con más de 49 usuarios se basa en ANF.
+** Para implementaciones con menos de 250 usuarios, se utiliza el nivel de rendimiento estándar.
+** Para implementaciones con >249 usuarios se utiliza el nivel de rendimiento superior.
+
+
+* link:https://cloud.netapp.com/cloud-backup["Backup en cloud de NetApp"]
++
+** Cloud Backup de NetApp se utiliza para realizar backups de volúmenes de almacenamiento ANF.
+
+
+* link:https://cloud.netapp.com/cloud-sync-service["Cloud Sync de NetApp"]
++
+** Cloud Sync de NetApp se puede usar para migrar datos a VDM cuando ANF es la tecnología de capa de almacenamiento de datos.
+
+
+* link:https://cloud.netapp.com/cloud-insights["Cloud Insights de NetApp"]
++
+** Nuestro equipo de soporte y servicios utiliza Cloud Insights de NetApp para supervisar el rendimiento.
+
+
+* link:https://cloudjumper.zendesk.com["Compatibilidad con VDMMS de NetApp"]
++
+** VDMS incluye 24/7 servicios de soporte para incidentes y de integración proporcionados por un equipo de soporte especializado de NetApp
+
+
+
+
+
+
+=== Microsoft
+
+* link:https://docs.microsoft.com/en-us/azure/storage/files/storage-files-scale-targets#storage-account-scale-targets["Azure Files (AF)"]
++
+** La capa de almacenamiento de datos para puestas en marcha con menos de 50 usuarios se basa en la tecnología AF. Configuramos el nivel "optimizado para transacciones" en una cuenta de almacenamiento GPv2.
+** Para despliegues con >49 usuarios, se utiliza ANF.
+
+
+* link:https://azure.microsoft.com/en-us/services/backup/["Backup en el cloud de Azure"]
++
+** Azure Cloud Backup se utiliza para realizar backups de volúmenes de almacenamiento y máquinas virtuales de AF.
+
+
+* link:https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning["Sincronización de archivos de Azure"]
++
+** Azure File Sync se puede usar para migrar datos A VDM cuando AF es la tecnología de capa de almacenamiento de datos.
+
+
+* link:https://azure.microsoft.com/en-us/services/azure-defender/["Azure Defender"]
++
+** VDMS activa (e incluye licencia para) Azure Defender, un servicio de seguridad avanzado en todas las máquinas virtuales del entorno. El cliente y su proveedor de servicios TECNOLÓGICOS realizan la gestión y la administración a través del Centro de seguridad de Azure. La gestión de Azure Security Center no es un servicio incluido en VDMS.
+
+
+* link:https://azure.microsoft.com/en-us/services/virtual-machines/windows/["Máquinas virtuales Azure"]
++
+** VDM confía en gran medida en los equipos virtuales Azure basados en Windows para alojar sesiones de usuario y aplicaciones de clientes.
+
+
+* link:https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview["Conexión de red virtual de Azure"]
++
+** LOS VDM pueden aprovechar la conexión de red virtual de Azure para integrar el controlador de dominio de Active Directory (AD DC) existente del cliente.
+
+
+* link:https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways["VPN de Azure"]
++
+** LOS VDM pueden aprovechar la VPN sitio a sitio de Azure para integrarse con el controlador de dominio de Active Directory (AD DC) existente del cliente.
+
+
+* link:https://docs.microsoft.com/en-us/azure/virtual-desktop/overview["Escritorio virtual de Windows (WVD)"]
++
+** VDMS aprovecha la funcionalidad WVD nativa para admitir la distribución de sesiones de usuario, la autenticación, las licencias de Windows y mucho más.
+
+
+* link:https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-azure-ad-connect["Azure AD Connect"]
++
+** WVD requiere que el dominio local (AD DC) y Azure AD estén sincronizados a través de la aplicación Azure AD Connect.
+
+
+* link:https://azure.microsoft.com/en-us/pricing/details/virtual-desktop/["Microsoft 365 (M365)"]
++
+** Las sesiones de usuario de WVD y Windows 10 Enterprise para los hosts de sesión tienen licencia para el usuario mediante tipos de licencia M365 específicos. La asignación de la licencia M365 adecuada a todos los usuarios DE VDM es un requisito de WVD y VDM. Esta licencia no está incluida en VDMS. La gestión de las licencias de M365 corresponde al cliente o a su proveedor de servicios TECNOLÓGICOS.
+
+
+

@@ -1,0 +1,108 @@
+---
+sidebar: sidebar 
+permalink: images.updateimages.html 
+summary: Actualización y puesta en marcha de imágenes de equipo virtual en VDM 
+keywords:  
+---
+= Actualizar e implementar imágenes de máquinas virtuales
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:allow-uri-read: 
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== Metodología de suministro de aplicaciones
+
+Los usuarios pueden acceder a cualquier aplicación que esté instalada en la máquina virtual del host de sesión (SHVM) en la que se esté ejecutando la sesión de usuario.
+
+Los usuarios se asignan a un grupo de SHVMs ("grupo de hosts") en función de su pertenencia a un grupo de usuarios. Cada SHVM de ese pool de hosts se basa en la misma imagen de la máquina virtual, tiene las mismas aplicaciones y se ejecuta en los mismos recursos de la máquina virtual. Cada vez que un usuario se conecta, se asignan a SHVM en su pool de hosts con la menor cantidad de sesiones de usuario actuales.
+
+Al añadir o quitar aplicaciones de cada SHVM en el pool de hosts, el administrador VDMS puede controlar a qué aplicaciones pueden acceder los usuarios VDMS.
+
+La adición (o eliminación) de aplicaciones de cada SHVM se puede realizar directamente en cada SHVM o en una sola imagen de máquina virtual que, a su vez, se puede implementar en todas las SHVMs del pool de hosts.
+
+Este artículo trata la gestión de imágenes de VM. La instalación directa de aplicaciones en los SHVMs se incluye en la link:applications.installapplications.html["este artículo"].
+
+
+
+=== Actualizando la imagen de máquina virtual
+
+El método recomendado para agregar (o quitar) aplicaciones a SHVM es mediante la edición de la imagen de VM asignada al pool de hosts. Una vez que la imagen de máquina virtual se haya personalizado y validado, el equipo de soporte VDM podrá ponerla en marcha a todas las SHVMs del pool de host a petición.
+
+.Cómo editar la imagen de máquina virtual
+. Navegue por "Provisioning Collections" dentro de la implementación en el portal VDS
+. Haga clic en la colección de aprovisionamiento asociada con el pool de hosts que desea actualizar.
++
+[role="thumb"]
+image:applications.addtoapplibrary-fdcc3.png["900,900"]
+
++
+.. Anote el nombre de "plantilla de equipo virtual" en la sección "servidores".
++
+[role="thumb"]
+image:applications.deployapps-0e39c.png["900,900"]
+
++
+[role="thumb"]
+image:applications.deployapps-c642c.png["900,900"]
+
+
+
+. Edite la plantilla servidor asegurándose de que la plantilla de origen es la plantilla de equipo virtual indicada en el paso 2.a. anterior. Haga clic en "continuar".
++
+[role="thumb"]
+image:applications.deployapps-307cb.png[""]
+
+
+
+
+NOTE: *No modifique estos ajustes:* 1. Tipo = VDI 2. Compartir unidad = vacía 3. Caché mínima = 0 4. Unidad de datos = sin comprobar 5. Tipo de almacenamiento = Standard_LRS
+
+. LA automatización VDMS creará ahora una VM temporal en Azure, el nombre de la máquina será _CWT#_. La creación de este equipo virtual puede llevar 25 minutos. Una vez que el proceso finalice, el estado cambiará a "pendiente"
++
+.. Tenga en cuenta que este equipo virtual se ejecutará hasta que finalice el proceso de personalización, por lo que es importante crear, personalizar y validar el equipo virtual en un día o dos.
+
+
+. Una vez que el equipo virtual temporal esté listo, puede iniciar sesión en el equipo virtual editando Provisioning Collection y haciendo clic en "Connect" en el servidor.
++
+.. Cuando se le soliciten las credenciales, cualquier administrador DE VDMS podrá generar las credenciales de administrador de dominio con derechos de "autorizador PAM".
+
+
+
+
+.Cómo implementar una imagen de máquina virtual actualizada
+. Una vez validada la imagen de una máquina virtual, póngase en contacto con el equipo de soporte DE VDM para programar una actualización de imagen.
+. El equipo creará nuevos hosts de sesión basados en la nueva imagen.
++
+.. Si es necesario, coordine el tiempo para probar los nuevos hosts antes de redirigir a los nuevos usuarios a los nuevos hosts.
+
+
+. Una vez que esté listo, el equipo de soporte redirigirá todas las sesiones de usuario nuevas a los nuevos hosts. Cerraremos los hosts antiguos una vez que no haya usuarios conectados. Estas máquinas virtuales antiguas permanecen en estado desescrito para conmutación por error cálida; sin embargo, estas máquinas virtuales se depurarán automáticamente después de 7 días.
+
+
+
+
+=== Cambio de SHVM(s) directamente
+
+Los cambios se pueden realizar directamente en el SHVM(s) manualmente o a través de cualquier herramienta de automatización disponible. Más información sobre esto se encuentra en link:applications.installapplications.html["este artículo"].
+
+Al realizar cambios directamente en los SHVMs de un grupo de hosts, es fundamental que cada SHVM siga configurado de la misma manera o que los usuarios tengan experiencias inconsistentes cuando se conectan a diferentes SHVMs.
+
+
+WARNING: De forma predeterminada, no se realiza un backup de los SHVMs individuales porque normalmente no tienen datos únicos y se basan en una imagen de equipo virtual estandarizada. Si está realizando personalizaciones directamente en los SHVMs, póngase en contacto con el servicio de soporte técnico para obtener una política de backup aplicada a uno de los SHVMs del pool de hosts.
+
+
+
+=== Solución de problemas de Sysprep
+
+La función "Validar" de imagen VDM utiliza la utilidad Sysprep de Microsoft. Cuando la validación falla, el culpable más común es un error de Sysprep. Para solucionar errores, inicie el archivo de registro de Sysprep ubicado en el equipo virtual CWT# de la ruta: C:\Windows\system32\Sysprep\panther\Setupact.log

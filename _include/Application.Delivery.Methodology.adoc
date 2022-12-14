@@ -1,0 +1,15 @@
+= Metodología de suministro de aplicaciones
+:allow-uri-read: 
+
+
+
+
+== Metodología de suministro de aplicaciones
+
+Los usuarios pueden acceder a cualquier aplicación que esté instalada en la máquina virtual del host de sesión (SHVM) en la que se esté ejecutando la sesión de usuario.
+
+Los usuarios se asignan a un grupo de SHVMs ("grupo de hosts") en función de su pertenencia a un grupo de usuarios. Cada SHVM de ese pool de hosts se basa en la misma imagen de la máquina virtual, tiene las mismas aplicaciones y se ejecuta en los mismos recursos de la máquina virtual. Cada vez que un usuario se conecta, se asignan a SHVM en su pool de hosts con la menor cantidad de sesiones de usuario actuales.
+
+Al añadir o quitar aplicaciones de cada SHVM en el pool de hosts, el administrador VDMS puede controlar a qué aplicaciones pueden acceder los usuarios VDMS.
+
+La adición (o eliminación) de aplicaciones de cada SHVM se puede realizar directamente en cada SHVM o en una sola imagen de máquina virtual que, a su vez, se puede implementar en todas las SHVMs del pool de hosts.

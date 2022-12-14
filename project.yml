@@ -1,0 +1,39 @@
+---
+settings:
+  name: Virtual Desktop Managed Service
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: es-es,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,fr-fr
+sidebar:
+  entries:
+  - title: Documentación DE VDMM
+    url: "/index.html"
+  - title: Primeros pasos
+    entries:
+    - title: Requisitos previos
+      url: "/serviceoffering.prerequisites.html"
+    - title: Resumen de servicios
+      url: "/serviceoffering.servicesummary.html"
+  - title: Tutoriales
+    entries:
+    - title: Instalar aplicaciones
+      url: "/applications.installapplications.html"
+    - title: Actualizar y poner en marcha la imagen de un equipo virtual
+      url: "/images.updateimages.html"
+    - title: Asigne usuarios a los grupos de aplicaciones
+      url: "/users.assigntoappgroup.html"
+    - title: Obtenga credenciales de administrador de dominio
+      url: "/administration.pam.html"
+    - title: Agregar acceso de usuario
+      url: "/users.add.html"
+    - title: Eliminar acceso de usuario
+      url: "/users.remove.html"
+    - title: Agregar o quitar administradores
+      url: "/administration.addremoveadmins.html"
+  - title: Preguntas frecuentes SOBRE VDMM
+    entries:
+    - title: Permisos del administrador de VDS
+      url: "/FAQ.vdsadminpermissions.html"

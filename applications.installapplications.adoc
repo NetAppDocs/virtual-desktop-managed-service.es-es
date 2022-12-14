@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: applications.installapplications.html 
+summary: Instalar aplicaciones en los hosts de sesión dentro de un pool de hosts 
+keywords:  
+---
+= Instalar aplicaciones en las máquinas virtuales del host de sesión
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:allow-uri-read: 
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== Metodología de suministro de aplicaciones
+
+Los usuarios pueden acceder a cualquier aplicación que esté instalada en la máquina virtual del host de sesión (SHVM) en la que se esté ejecutando la sesión de usuario.
+
+Los usuarios se asignan a un grupo de SHVMs ("grupo de hosts") en función de su pertenencia a un grupo de usuarios. Cada SHVM de ese pool de hosts se basa en la misma imagen de la máquina virtual, tiene las mismas aplicaciones y se ejecuta en los mismos recursos de la máquina virtual. Cada vez que un usuario se conecta, se asignan a SHVM en su pool de hosts con la menor cantidad de sesiones de usuario actuales.
+
+Al añadir o quitar aplicaciones de cada SHVM en el pool de hosts, el administrador VDMS puede controlar a qué aplicaciones pueden acceder los usuarios VDMS.
+
+La adición (o eliminación) de aplicaciones de cada SHVM se puede realizar directamente en cada SHVM o en una sola imagen de máquina virtual que, a su vez, se puede implementar en todas las SHVMs del pool de hosts.
+
+En este artículo se trata de la instalación directa de aplicaciones en los SHVMs. Se abarca la gestión de imágenes de VM en link:images.updateimages.html["este artículo"].
+
+
+
+=== Acceso manual
+
+El portal DE gestión VDMS proporciona acceso directo a cada equipo virtual a través de una cuenta de administrador local puntual para todos los SHVMs y servidores de negocios. Este acceso se puede utilizar para conectarse manualmente a cada equipo virtual para instalar aplicaciones manualmente y realizar otros cambios de configuración.
+
+Esta funcionalidad se encuentra en Workspace > Servers > Actions > Connect
+
+[role="thumb"]
+image:applications.installapplications-171af.png["900,900"]
+
+Si se requieren credenciales de administrador de dominio, LA funcionalidad de gestión de acceso privilegiado (PAM) VDMS para generar credenciales de administración de dominio. Los detalles pueden ser link:administration.pam.html["aquí encontrará"].
+
+
+
+=== Automatización VDMS
+
+Con EL portal VDMS, la sección "Eventos con guión" incluye funcionalidad para ejecutar código de forma remota.
+
+Dentro de los eventos programados, la pestaña Repository contiene scripts "globales" que ha publicado NetApp. Los scripts personalizados se pueden agregar con el botón "+ Add Script".
+
+Dentro de eventos programados, la pestaña Activities contiene el disparador que provoca la ejecución de un script en un conjunto de equipos virtuales. En el caso DE VDMS, lo mejor es introducir un guión entre los equipos virtuales adecuados para los tipos de evento «manuales» y «programados».
+
+
+NOTE: Las actividades tienen muchos desencadenadores disponibles llamados "tipos de evento". En EL caso DE VDMS, no se aplican los tipos "instalación de aplicaciones" ni "desinstalación de aplicaciones". Se trata de desencadenadores específicos de RDS y no deben utilizarse para VDMS, ya que VDMS es un servicio basado en WVD y sigue la arquitectura de diseño de RDS.
+
+
+
+=== Otras herramientas de automatización
+
+Las máquinas virtuales de VDM se pueden gestionar con herramientas de gestión de terceros. Los cambios en las aplicaciones y otros cambios en la configuración de las máquinas virtuales se pueden aplicar mediante cualquier herramienta compatible.

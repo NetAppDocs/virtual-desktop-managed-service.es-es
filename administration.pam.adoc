@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: administration.pam.html 
+summary: Obtener acceso de dominio a máquinas virtuales VDMS 
+keywords:  
+---
+= Generar credenciales de administrador de dominio en VDMS
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:allow-uri-read: 
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== Gestión de acceso privilegiado
+
+A los administradores DE VDM se les puede asignar el papel de aprobador PAM que permite al administrador atender las solicitudes PAM.
+
+Las solicitudes de PAM generarán una cuenta de administrador a nivel de dominio que se utilizará para autenticar en equipos virtuales VDM cuando las credenciales de administrador local justo a tiempo no sean suficientes.
+
+Cualquier administrador DE VDM puede enviar una solicitud PAM, pero sólo los administradores que tengan la función de aprobador PAM pueden aprobar las solicitudes. El responsable de aprobación de PAM puede solicitar y aprobar su propia solicitud.
+
+
+
+=== Envíe una solicitud PAM
+
+.Para enviar una solicitud PAM
+. Desplácese hasta el nombre de usuario de administrador en la esquina superior derecha y haga clic en "Settings".
+. Seleccione la ficha "solicitudes PAM"
+. Haga clic en "+ Agregar"
++
+.. Seleccione una duración tras la cual caducarán estas credenciales
+.. Elija la implementación
+.. Introduzca una dirección de correo electrónico con la que se puedan proporcionar las credenciales. Puede tratarse de cualquier dirección de correo electrónico, lo que permite a terceros (por ejemplo, un proveedor) obtener credenciales de dominio.
+.. Introduzca un número de teléfono que pueda recibir mensajes de texto
+.. Introduzca las notas para los registros y para que la persona responsable de aprobación de PAM las revise.
+
+
+. Haga clic en "Add Request".
+
+
+
+
+=== Aprobar una solicitud PAM
+
+.Para revisar y aprobar/rechazar una solicitud PAM
+. . Desplácese hasta el nombre de usuario de administrador en la esquina superior derecha y haga clic en "Settings".
+. Seleccione la ficha "solicitudes PAM" y haga clic en la petición
+. Revise la solicitud y haga clic en "aprobar" o "rechazar".
+. Introduzca cualquier nota relevante para la decisión de aprobación/rechazo
+
+
+
+
+=== Uso de credenciales generadas por PAM
+
+Una vez aprobada la solicitud, se envía un correo electrónico de confirmación para activar sus credenciales:
+
+[role="thumb"]
+image:administration.pam-c2382.png["900,900"]
+
+Tras el enlace "Activar solicitud", el usuario se pondrá en la siguiente página y les enviará un código de confirmación a través de SMS. También se les pedirá que establezcan una contraseña segura.
+
+[role="thumb"]
+image:administration.pam-ea1ea.png["900,900"]
+
+Tras validar la cuenta correctamente, el usuario recibe una confirmación con su nombre de usuario.
+
+[role="thumb"]
+image:administration.pam-01f30.png["900,900"]

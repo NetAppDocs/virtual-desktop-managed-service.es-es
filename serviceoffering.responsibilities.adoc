@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: serviceoffering.responsibilities.html 
+summary: Roles y responsabilidades de servicio DE VDMM 
+keywords:  
+---
+= Roles y responsabilidades de servicio DE VDMM
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:allow-uri-read: 
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+

@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: users.remove.html 
+summary: Eliminación del acceso del usuario en VDMS 
+keywords:  
+---
+= Eliminando acceso de usuario
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:allow-uri-read: 
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== Eliminación de un usuario
+
+.Nuevas puestas en marcha de Active Directory (se creó un nuevo dominio de Active Directory para VDM)
+. Elimine el usuario en VDMS
++
+.. Desplácese hasta el área de trabajo, seleccione la ficha "usuarios y grupos", haga clic en los puntos de acción situados junto al usuario que desea eliminar y, a continuación, haga clic en "Eliminar"image:users.remove01.png["900,900"]
+.. Aparecerá una ventana emergente con opciones para retrasar la eliminación y eliminar del directorioimage:users.remove02.png["900,900"]
++
+... La opción delay deletion esperará 90 minutos antes de eliminar al usuario, lo que permite cancelar el proceso. Se recomienda marcar esta casilla.
+... La opción Eliminar de directorio eliminará la cuenta de usuario de Active Directory. Esta casilla debe estar activada.
+
+
+
+
+. Notifique a NetApp sobre el proceso de retirada de usuarios mediante uno de los siguientes métodos
++
+.. Asistencia por correo electrónico: VDSsupport@netapp.com
+.. Asistencia telefónica: 844.645.6789
+.. link:https://cloudjumper.zendesk.com["Portal DE asistencia VDMM"]
+
+
+
+
+.Puestas en marcha existentes de Active Directory (VDM se conecta a un Active Directory existente)
+. Elimine el usuario en VDMS
++
+.. Desplácese hasta el área de trabajo, seleccione la ficha "usuarios y grupos", haga clic en los puntos de acción situados junto al usuario que desea eliminar y, a continuación, haga clic en "Eliminar"image:users.remove01.png["900,900"]
+.. Aparecerá una ventana emergente con opciones para retrasar la eliminación y eliminar del directorioimage:users.remove03.png["900,900"]
++
+... La opción delay deletion esperará 90 minutos antes de eliminar al usuario, lo que permite cancelar el proceso. Se recomienda marcar esta casilla.
+... La opción Eliminar de directorio eliminará la cuenta de usuario de Active Directory. Se recomienda no activar esta casilla y se seguirá el proceso de eliminación de cuentas de usuario de su organización para eliminar la cuenta de Active Directory.
+
+
+
+
+. Notifique a NetApp sobre el proceso de retirada de usuarios mediante uno de los siguientes métodos
++
+.. Asistencia por correo electrónico: VDSsupport@netapp.com
+.. Asistencia telefónica: 844.645.6789
+.. link:https://cloudjumper.zendesk.com["Portal DE asistencia VDMM"]
+
+
+

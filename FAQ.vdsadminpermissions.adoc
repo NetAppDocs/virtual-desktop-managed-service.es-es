@@ -1,0 +1,119 @@
+---
+sidebar: sidebar 
+permalink: FAQ.vdsadminpermissions.html 
+summary: Resumen de permisos de administrador de VDS 
+keywords:  
+---
+= Permisos del administrador de VDS
+:toc: macro
+:hardbreaks:
+:toclevels: 2
+:allow-uri-read: 
+:toc: 
+:toclevels: 2
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+:keywords: 
+:toc-position: content
+
+
+
+
+== Descripción de los permisos de administración
+
+Los administradores DE VDMS tienen acceso limitado al portal de administración VDS. Puesto que VDMM es una solución gestionada conjuntamente, hay conjuntos de permisos que no están habilitados para administradores DE VDMS. Estas acciones están reservadas para el equipo de soporte de NetApp. Si hay acciones necesarias que no se pueden realizar debido a limitaciones de permisos, póngase en contacto con el servicio de asistencia técnica para obtener ayuda.
+
+
+
+== Configuración de tipo de cuenta
+
+En la cuenta de administrador VDMS, los siguientes ajustes son los predeterminados.
+
+[cols="3*"]
+|===
+| Tipo | Valor predeterminado | Notas 
+
+
+| Cuenta técnica | Falso | Se puede cambiar bajo solicitud al servicio de soporte de NetApp. Cuando se habilita esta opción, se solicita al administrador que realice la conexión a cualquier máquina virtual mediante el portal VDS. Cuando se deshabilita, el administrador se autentica automáticamente (con una cuenta de administrador local generada automáticamente) al conectarse a cualquier máquina virtual de tenant a través del portal VDS. Al conectarse a cualquier equipo virtual del servidor de la plataforma, los administradores todavía se ven necesarios para obtener credenciales. 
+
+
+| link:administration.pam.html["Aprobador de PAM"] | Verdadero | Se puede cambiar bajo solicitud al servicio de soporte de NetApp. El cliente debe tener al menos una cuenta de administrador habilitada como aprobador de PAM. 
+
+
+| Asistencia al usuario | Falso | Esta característica no se aplica a VDMS. 
+
+
+| Usuario sombra | Verdadero | Se puede cambiar bajo solicitud al servicio de soporte de NetApp. Cuando se habilita esta opción, el administrador puede conectarse a la sesión de un usuario final y ver lo que se ve para ofrecer asistencia al usuario final. 
+
+
+| MFA habilitado | Verdadero | Es necesario garantizar la seguridad del acceso del administrador AL portal DE administración DE VDMS mediante MFA incorporado. Se admiten los métodos de SMS y/o correo electrónico. 
+|===
+
+
+== Permisos de la cuenta de administrador
+
+En la cuenta de administrador DE VDMS, los siguientes permisos son los predeterminados.
+
+[cols="6*"]
+|===
+| Módulo | Ver | Editar | Eliminar | Agregar | Notas 
+
+
+| Admin | Encendido | Apagado | Encendido | Apagado | El soporte de NetApp gestiona la adición de cuentas de administrador o el cambio de permisos de administrador. 
+
+
+| Servicios de aplicaciones | Apagado | Apagado | Apagado | Apagado | EL conjunto de funciones de Servicios de aplicación no es una característica compatible EN VDMS. 
+
+
+| Más grandes | Apagado | Apagado | Apagado | Apagado | El conjunto de funciones aplicaciones de VDS es específico de RDS. VDMS es un servicio basado en WVD y la gestión de aplicaciones no se gestiona con esta función. Consulte link:mages.updateimages.html["actualice e implemente imágenes"] Para obtener información detallada acerca de la entrega de la aplicación a VDMS. 
+
+
+| Auditorías | Encendido | Encendido | Encendido | Encendido |  
+
+
+| Clientes | Encendido | Encendido | Apagado | Apagado | El soporte de NetApp gestiona la creación o eliminación del cliente. 
+
+
+| Implementaciones | Encendido | Encendido | Apagado | Apagado | El soporte de NetApp gestiona la creación o eliminación de la puesta en marcha. 
+
+
+| Reglas de firewall | Encendido | Encendido | Encendido | Encendido |  
+
+
+| Carpetas | Encendido | Encendido | Encendido | Encendido |  
+
+
+| Grupos | Encendido | Encendido | Apagado | Encendido | El soporte de NetApp gestiona la eliminación de grupos de usuarios. Se requieren ciertos grupos de usuarios 
+
+
+| De NetApp | Encendido | Apagado | Apagado | Apagado | EL conjunto de características de los partners no es una característica compatible EN VDMS. Ver los permisos necesarios para mostrar las listas de arrendatarios. 
+
+
+| Plantillas de abastecimiento | Encendido | Encendido | Apagado | Apagado | El soporte de NetApp gestiona la creación o eliminación de imágenes. 
+
+
+| Leídos | Encendido | Encendido | Encendido | Encendido |  
+
+
+| Recursos | Encendido | Apagado | Apagado | Apagado | El soporte de NetApp gestiona la configuración de los recursos. 
+
+
+| Eventos programados | Encendido | Encendido | Encendido | Encendido |  
+
+
+| Servidores | Encendido | Encendido | Apagado | Apagado | El soporte de NetApp gestiona los ajustes de creación/eliminación de servidores. 
+
+
+| Placa de servicio | Encendido | Encendido | Encendido | Encendido |  
+
+
+| Configuración | Encendido | Encendido | Encendido | Encendido |  
+
+
+| Usuarios | Encendido | Encendido | Encendido | Encendido |  
+
+
+| Espacios de trabajo | Encendido | Encendido | Apagado | Apagado | El soporte de NetApp gestiona la creación/eliminación de espacios de trabajo. 
+|===
